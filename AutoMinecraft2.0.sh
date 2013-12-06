@@ -21,8 +21,10 @@ source autominecraft.conf
 echo "Welcome $USER!"
 
 #Give the user some options
-echo "S = Start"
-echo "Stop the server = Stop"
+echo "What would you like to do?"
+echo "Option Start: Start the server"
+echo "Option Stop: Stop the server"
+echo "Option Restart: Restart the server"
 
 #Read the users option
 read OPTION
@@ -62,7 +64,8 @@ function restartServer
 	screen -dmS $SNAME java $JAVAVAR $SERVERJAR
 }
 
-if [ $OPTION = S ]
+
+if [ $OPTION = Start ]
 then
      startServer
 fi
@@ -72,8 +75,23 @@ then
      stopServer
 fi
 
-if [ $OPTION = restart ]
+if [ $OPTION = Restart ]
 then
      restartServer
 fi
 
+#For those who are lazy
+if [ $OPTION = start ]
+then
+     startServer
+fi
+
+if [ $OPTION = stop ] 
+then
+     stopServer
+fi
+
+if [ $OPTION = restart ]
+then
+     restartServer
+fi
